@@ -77,7 +77,7 @@ document.querySelectorAll('.js-add-cart')
   .forEach((button) =>{
     button.addEventListener('click',() =>{
       //console.log(button.dataset.productId)
-      const productid = button.dataset.productId
+      const productid = button.dataset.productId;
       let matchItem;
       //product name may be same 
       //we have to maintain id 
@@ -91,11 +91,15 @@ document.querySelectorAll('.js-add-cart')
       }
       else{
         cart.push({
-          productid,
+          productId: productid,
           quantity: 1,
         });
-      }
-      console.log(cart);
+      };
+      let tot_quantity = 0;
+      cart.forEach((item)=>{
+        tot_quantity += item.quantity;
+      });
+      document.querySelector(".js-cart-quantity").innerHTML = tot_quantity;
 
     });
   });
