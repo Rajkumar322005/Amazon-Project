@@ -68,7 +68,8 @@ document.querySelectorAll('.js-add-cart')
       //console.log(button.dataset.productId)
       const productid = button.dataset.productId;
       addTocart(productid);
-      updateCart();  
 
+      updateCart();
+      console.log(cart);
     });
   });
