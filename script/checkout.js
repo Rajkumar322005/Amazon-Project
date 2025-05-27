@@ -2,7 +2,7 @@ import { cart,removeCart } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { format_money } from "./utils/money.js";
 import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
-// Not Every Externel library have ESM, if one import no need to put{} 
+// Not Every Externel library have ESM, if one import no need to put{}  
 const today = dayjs();
 const deliveryDate = today.add(7,'days');
 console.log(deliveryDate.format('dddd , MMMM D'));
@@ -45,7 +45,7 @@ cart.forEach((cartItem) =>{
                 <span class="delete-quantity-link link-primary js-delete-link" data-product-id = "${
                   matchItem.id
                 }">
-                Delete
+                 Delete
                 </span>
             </div>
             </div>
