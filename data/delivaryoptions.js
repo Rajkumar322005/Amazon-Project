@@ -11,5 +11,5 @@ export const deliveryOptions = [{
 {
     id : '3',
     delivaryDays : 1,
-    PriceCents : 999
+    PriceCents :999
 }]
