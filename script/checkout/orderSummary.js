@@ -1,9 +1,9 @@
 import { cart,removeCart,updateDelivaryOption } from "../../data/cart.js";
-import { products } from "../../data/products.js";
+import { products, getProduct } from "../../data/products.js";
 import { format_money } from "../utils/money.js";
 import dayjs from "https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js";
 // Not Every Externel library have ESM, if one import no need to put{}  
-import {deliveryOptions} from '../../data/delivaryoptions.js';
+import {deliveryOptions,getdeliveryOption} from '../../data/delivaryoptions.js';
 
 
 const today = dayjs();
@@ -15,24 +15,14 @@ export function renderOrderSummary(){
     
     cart.forEach((cartItem) =>{
         const productId = cartItem.productId;
-        let matchItem;
-        products.forEach((product)=>{
-            if(product.id === productId){
-                matchItem = product;
-            };
-        });
+        let  matchItem = getProduct(productId);
         //console.log(matchItem);
         const del = cartItem.deliveryOptionsId;
-        let deliv_option;
-        deliveryOptions.forEach((option)=>{
-            if(option.id === del){
-                deliv_option = option;
-            }
-        });
+        const deliv_option = getdeliveryOption(del);
         const today = dayjs();
         const deliverydate = today.add(deliv_option.delivaryDays, "days");
         const datestring = deliverydate.format("dddd,MMMM D");
-        console.log(deliverydate,datestring);
+        //console.log(deliverydate,datestring);
     
         cartSummary += `
         <div class="cart-item-container js-cart-item-container-${matchItem.id}">
@@ -98,7 +88,7 @@ export function renderOrderSummary(){
             === 0? 'FREE Shipping' : `$${format_money(deliveryoption.PriceCents)} - `;
     
             const ischecked = deliveryoption.id === cartItem.deliveryOptionsId; 
-            console.log(ischecked);
+            //console.log(ischecked);
             html += `
                <div class="delivery-option js-delivery-option" data-product-id="${
                  matchItem.id
