@@ -19,7 +19,7 @@ export function renderPaymentSummary(){
     const beforeTax = cost + shippingcost;
     const totaltax = beforeTax*0.1;
     const totalCents = beforeTax + totaltax;
-
+    const len = (cart.length);
     const paymentSummaryHtml = 
     `
         <div class="payment-summary-title">
@@ -27,7 +27,7 @@ export function renderPaymentSummary(){
         </div>
 
         <div class="payment-summary-row">
-        <div>Items (3):</div>
+        <div>Items (${len}):</div>
 
         <div class="payment-summary-money">$${format_money(cost)}</div>
         </div>
