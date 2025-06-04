@@ -1,6 +1,7 @@
 import {cart,addTocart} from '../data/cart.js';
 import {products} from '../data/products.js';
 import { format_money } from "./utils/money.js";
+
 let combinedHtml = '';
 products.forEach((products)=>{
     combinedHtml += `<div class="product-container">
