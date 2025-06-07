@@ -1,4 +1,4 @@
-    import { format_money } from "../script/utils/money.js";
+import { format_money } from "../script/utils/money.js";
 
 //Automate Testing -->passed/Failed in console
 //Manual Testing --> console.log(value and manually)
@@ -9,7 +9,6 @@ if(format_money(2095) === '20.95'){
 else{
     console.log('Failed');
 }
-if()
 
 /*Disadvantages Manual Testing
      Hard to Reset
